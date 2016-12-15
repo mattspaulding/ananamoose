@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {Content, NavParams,NavController, AlertController} from 'ionic-angular';
-import {Device,LocalNotifications} from 'ionic-native';
+import {Device} from 'ionic-native';
 
 import {DataService} from '../../providers/data';
 import {FirebaseListObservable} from "angularfire2";
@@ -40,24 +40,8 @@ export class MessagesPage {
         this.content.scrollToBottom(1000);
       }, 10);
     });
-    // Schedule a single notification
-    LocalNotifications.schedule({
-      id: 1,
-      text: 'Single Notification',
-      sound:  'file://beep.caf',
-      data: { secret: 'im secret' }
-    });
   }
 
-  //  schedule() {
-  //    debugger;
-  //   LocalNotifications.schedule({
-  //     title: "Test Title",
-  //     text: "Delayed Notification",
-  //     at: new Date(new Date().getTime() + 5 * 1000),
-  //     sound: null
-  //   });
-  // }
   addMessage(text: string) {
     if (text !== '') {
       let name = Device.device.uuid || 'web';
