@@ -40,18 +40,13 @@ export class MessagesPage {
         this.content.scrollToBottom(1000);
       }, 10);
     });
-    // setTimeout(() => {
-    //   this.content.scrollToBottom(1000);
-    // }, 1000);
-
-    // LocalNotifications.on("click", (notification, state) => {
-    //   let alert = Alert.create({
-    //     title: "Notification Clicked",
-    //     subTitle: "You just clicked the scheduled notification",
-    //     buttons: ["OK"]
-    //   });
-    //   alert.present();
-    // });
+    // Schedule a single notification
+    LocalNotifications.schedule({
+      id: 1,
+      text: 'Single Notification',
+      sound:  'file://beep.caf',
+      data: { secret: 'im secret' }
+    });
   }
 
   //  schedule() {
