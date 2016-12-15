@@ -2,7 +2,11 @@
 
 ## how to package
 
+###ios
+
 ionic package build ios --profile ananamoosedist --release
+
+###android
 
 ionic package build android --profile ananamooseandroid --release
 
