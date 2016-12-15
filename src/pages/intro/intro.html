@@ -1,0 +1,48 @@
+<ion-slides [options]="mySlideOptions">
+
+  <ion-slide id="slide0">
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/ananamoose.png" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>ananamoose</h1>
+        <p>welcome</p>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+  <ion-slide id="slide1">
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/vendetta.png" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>anonymous</h1>
+        <p>no login</p>
+        <p>no username</p>
+        <p>no worries</p>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+  <ion-slide id="slide0" style="height:100%">
+    <ion-row>
+      <ion-col>
+        <p>by pressing 'enter' you agree to the</p>
+        <p style="color:blue;" (click)="goToEula()">terms of service</p>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/ananamoose.png" />
+      </ion-col>
+    </ion-row>
+    <button ion-button round color="secondary" (click)="goToHome()">enter</button>
+
+  </ion-slide>
+
+</ion-slides>

@@ -1,0 +1,34 @@
+page-rooms {
+
+  $SIDEMENU_TOP: #FF943A;
+  $SIDEMENU_BOTTOM: #FFB570;
+  $SIDEMENU_TRANSPARENCY: rgba(255,255,255,0.4);
+
+
+
+  p{
+    color:black !important;
+  }
+
+  .list-item{
+    //background:none;
+    color:white;
+    font-weight:300;
+    img{
+      float:left;
+      height: 40px;
+      padding-right: 20px;
+    }
+
+  }
+
+
+  .input-cover {
+    position: static;
+  }
+
+  .scroll-content{
+    padding:0px !important;
+  }
+
+}

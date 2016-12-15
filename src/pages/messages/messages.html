@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{roomName}}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content id="messagesContent" class="top-container" padding>
+  <h3 *ngIf="!messages">loading...</h3>
+  <ion-list no-lines>
+    <ion-item-sliding *ngFor="let message of metaMessages " #slidingItem (click)="open(slidingItem, item)">
+      <ion-item class="item-avatar list-item" *ngIf="!message.isFlagged||message.isShow" >
+        <img src="assets/img/ananamoose.png"/>
+          <p style="white-space:normal;">{{message.message}}</p>
+      </ion-item>
+      <ion-item class="item-avatar list-item" *ngIf="message.isFlagged&&!message.isShow" >
+        <img src="assets/img/ananamoose.png" style="filter: brightness(0.5);">
+        <p style="white-space:normal;color:grey !important;">this moose has been flagged as inappropriate</p>
+      </ion-item>
+      <!--<ion-item-options side="left">-->
+      <!--<button ion-button color="primary" (click)="addRoom(message.message)" >-->
+      <!--<ion-icon name="undo"></ion-icon>-->
+      <!--reply-->
+      <!--</button>-->
+      <!--</ion-item-options>-->
+      <ion-item-options side="right">
+        <button ion-button color="danger" (click)="flag(message.$key)" *ngIf="!message.isFlagged||message.isShow" style="width:65px;">
+          <ion-icon name="flag"></ion-icon>
+          flag
+        </button>
+      <!--</ion-item-options>-->
+      <!--<ion-item-options side="right">-->
+        <button ion-button color="success" (click)="show(message.$key)" *ngIf="message.isFlagged&&!message.isShow" style="width:65px;">
+          <ion-icon name="disc"></ion-icon>
+          show
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+<form (ngSubmit)="addMessage(message)" class="bottom-form">
+  <ion-item style="background-color:white; color:black;">
+    <ion-label floating>write an ananamoose</ion-label>
+    <ion-input type="text" autocorrect="off" autocapitalize="none" [(ngModel)]="message" name="message"></ion-input>
+  </ion-item>
+  <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+</form>

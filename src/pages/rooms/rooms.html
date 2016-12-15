@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar >
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      rooms
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content  padding>
+  <ion-list no-lines>
+    <ion-item-sliding *ngFor="let room of rooms | async">
+      <ion-item class="item-avatar list-item" (click)="goToMessages(room.$key,room.name)" >
+        <img src="https://s3.amazonaws.com/ionic-io-static/bpX6SWRQS32JNR0xA5gw_DoodleMoose_Logo_Icon-04-copyWhite.png">
+        <p style="white-space:normal;">{{room.name}}</p>
+      </ion-item>
+      <ion-item-options side="left">
+        <button ion-button color="primary">
+          <ion-icon name="undo"></ion-icon>
+          reply
+        </button>
+      </ion-item-options>
+      <ion-item-options side="right">
+        <button ion-button color="danger">
+          <ion-icon name="flag"></ion-icon>
+          flag
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

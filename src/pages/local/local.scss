@@ -1,0 +1,48 @@
+page-local {
+
+  text-align: center;
+
+  #slide0 {
+    background-color: #FF943A;
+  }
+  #slide1 {
+    background-color: #000;
+  }
+
+  //button {
+  //  bottom: 0 !important;
+  //  position: fixed !important;
+  //  height: 130px !important;
+  //  font-size: 3.6rem !important;
+  //  font-weight: 300 !important;
+  //  margin:0 !important;
+  //}
+
+  h1 {
+    font-weight: 300;
+    font-size: 3.6rem;
+  }
+
+  img {
+    width: 60% !important;
+  }
+
+  .swiper-pagination-bullet {
+    background-color: white;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: white;
+  }
+
+  font-weight: 300;
+  color: white;
+
+  ion-spinner  {
+    padding-top: 400px;
+    width: 28px;
+    height: 28px;
+    stroke: white;
+    fill: white;
+  }
+
+}

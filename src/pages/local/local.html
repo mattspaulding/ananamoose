@@ -1,0 +1,50 @@
+<ion-slides [options]="mySlideOptions" *ngIf="loading===false">
+  <ion-slide id="slide0">
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/ananamoose.png" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>localmoose</h1>
+        <p>welcome</p>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+  <ion-slide id="slide1">
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/vendetta.png" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>anonymous</h1>
+        <p>we need your location</p>
+        <p>to figure out where you are.</p>
+        <p>this is ONLY used to determine your general location</p>
+        <p>and your exact location is NEVER stored.</p>
+      </ion-col>
+    </ion-row>
+  </ion-slide>
+  <ion-slide id="slide0" style="height:100%">
+    <ion-row>
+      <ion-col>
+        <img src="assets/img/ananamoose.png" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>allow location</h1>
+        <p>if you agree to use location, click 'use location'.</p>
+        <p>if you have trust issues, click 'cancel'.</p>
+      </ion-col>
+    </ion-row>
+    <button ion-button clear color="danger" (click)="cancel()">cancel</button>
+    <button ion-button round color="secondary" (click)="allowGeolocation()">use location</button>
+  </ion-slide>
+</ion-slides>
+<ion-content  padding  *ngIf="loading===true">
+      <ion-spinner name="dots"></ion-spinner>
+  </ion-content>
