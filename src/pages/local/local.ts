@@ -4,7 +4,7 @@ import {Storage} from '@ionic/storage';
 
 import {MessagesPage} from '../messages/messages';
 
-
+import {Geolocation} from 'ionic-native';
 import {GoogleMaps} from '../../providers/google-maps';
 import {DataService} from '../../providers/data';
 import {FirebaseListObservable} from "angularfire2";
@@ -22,12 +22,12 @@ export class LocalPage {
   rooms: FirebaseListObservable< any[]>;
   data: DataService;
   googleMaps: GoogleMaps;
-  loading:boolean=false;
+  loading: boolean = false;
   mySlideOptions = {
-    pager:true
+    pager: true
   };
 
-  constructor(public navCtrl: NavController, private _data: DataService, private _googleMaps: GoogleMaps,public storage:Storage) {
+  constructor(public navCtrl: NavController, private _data: DataService, private _googleMaps: GoogleMaps, public storage: Storage) {
     this.googleMaps = _googleMaps;
 
     this.storage.get('location_accepted').then((result) => {
@@ -39,16 +39,15 @@ export class LocalPage {
   }
 
   allowGeolocation() {
-    this.loading=true;
-    navigator.geolocation.getCurrentPosition(
-      position=> {
+    this.loading = true;
+    Geolocation.getCurrentPosition().then((position) => {
 
-          this.storage.set('location_accepted', true);
+        this.storage.set('location_accepted', true);
 
-         this.googleMaps.load(position.coords.latitude, position.coords.longitude).then(response => {
+        this.googleMaps.load(position.coords.latitude, position.coords.longitude).then(response => {
           let locale = '';
           var metro = response.results.filter(
-            result=> {
+            result => {
               return result.formatted_address.includes('Metropolitan')
             }
           );
@@ -57,7 +56,7 @@ export class LocalPage {
           }
           else {
             var county = response.results.filter(
-              result=> {
+              result => {
                 return result.formatted_address.includes('County')
               }
             );
@@ -78,7 +77,7 @@ export class LocalPage {
 
           this.navCtrl.setRoot(MessagesPage, {room, roomName}, {animate: true, direction: "forward"});
         })
-      }, error=> {
+      }, error => {
         alert('code: ' + error.code + '\n' +
           'message: ' + error.message + '\n');
       });
