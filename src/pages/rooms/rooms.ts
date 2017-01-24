@@ -1,6 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
 import {Content, NavController} from 'ionic-angular';
-import {Device} from 'ionic-native';
 
 import {MessagesPage} from '../messages/messages';
 
@@ -9,7 +8,6 @@ import {GoogleMaps} from '../../providers/google-maps';
 import {DataService} from '../../providers/data';
 import {FirebaseListObservable} from "angularfire2";
 
-import * as firebase from "firebase";
 
 
 @Component({

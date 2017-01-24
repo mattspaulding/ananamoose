@@ -16,7 +16,7 @@ export class DataService {
         limitToLast: 100,
       }
     });
-    let name = Device.device.uuid || 'web';
+    let name = Device.uuid || 'web';
     this.rooms = af.database.list('room_names');
 
    }

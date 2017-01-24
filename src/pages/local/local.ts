@@ -9,7 +9,6 @@ import {GoogleMaps} from '../../providers/google-maps';
 import {DataService} from '../../providers/data';
 import {FirebaseListObservable} from "angularfire2";
 
-import * as firebase from "firebase";
 
 
 @Component({

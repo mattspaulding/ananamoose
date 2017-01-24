@@ -9,6 +9,8 @@ import {MessagesPage} from '../pages/messages/messages';
 import {RoomsPage} from '../pages/rooms/rooms';
 import {LocalPage} from '../pages/local/local';
 
+import * as firebase from "firebase";
+
 @Component({
   templateUrl: 'app.html'
 })

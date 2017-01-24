@@ -14,5 +14,5 @@
 declare module '*';
 
 declare namespace firebase.database.ServerValue {
-  var TIMESTAMP: any
+  var TIMESTAMP: Object
 }

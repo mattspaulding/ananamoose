@@ -5,7 +5,6 @@ import {Device} from 'ionic-native';
 import {DataService} from '../../providers/data';
 import {FirebaseListObservable} from "angularfire2";
 
-import * as firebase from "firebase";
 
 @Component({
   selector: 'page-messages',
@@ -37,14 +36,19 @@ export class MessagesPage {
     _data.messages.subscribe((data)=> {
       this.metaMessages = data;
       setTimeout(() => {
-        this.content.scrollToBottom(1000);
+        this.content.scrollToBottom();
       }, 10);
     });
+
+    setTimeout(() => {
+      this.content.scrollToBottom();
+    }, 1000);
   }
 
   addMessage(text: string) {
     if (text !== '') {
-      let name = Device.device.uuid || 'web';
+      let name = Device.uuid;
+      if(typeof name=='object') name='web';
       this.messages.push({
         name: name,
         message: text,
@@ -113,3 +117,16 @@ export class MessagesPage {
   // }
 
 }
+
+
+
+// WEBPACK FOOTER //
+// ./src/pages/messages/messages.ts
+
+
+// WEBPACK FOOTER //
+// ./src/pages/messages/messages.ts
+
+
+// WEBPACK FOOTER //
+// ./src/pages/messages/messages.ts
